@@ -12,13 +12,15 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeuserComponent } from './user/homeuser/homeuser.component';
 import { HomeadminComponent } from './admin/homeadmin/homeadmin.component';
+import { UserComponent } from './admin/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     ProfileComponent,
     HomeuserComponent,
-    HomeadminComponent
+    HomeadminComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
