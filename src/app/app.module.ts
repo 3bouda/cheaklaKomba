@@ -13,6 +13,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeuserComponent } from './user/homeuser/homeuser.component';
 import { HomeadminComponent } from './admin/homeadmin/homeadmin.component';
 import { UserComponent } from './admin/user/user.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './user/navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AccueilComponent } from './user/accueil/accueil.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,10 @@ import { UserComponent } from './admin/user/user.component';
     ProfileComponent,
     HomeuserComponent,
     HomeadminComponent,
-    UserComponent
+    UserComponent,
+    FooterComponent,
+    NavbarComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,8 @@ import { UserComponent } from './admin/user/user.component';
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule ,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

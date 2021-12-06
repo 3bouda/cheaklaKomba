@@ -5,14 +5,19 @@ import { UsersComponent } from './admin/users/users.component';
 import { HomeuserComponent } from './user/homeuser/homeuser.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { UserComponent } from './admin/user/user.component';
+import { FooterComponent } from './footer/footer.component';
+import { AccueilComponent } from './user/accueil/accueil.component';
 
 
 const routes: Routes = [
-  {path:"adminHome",component: HomeadminComponent},
+  {path:"homeadmin",component: HomeadminComponent},
   {path:"users",component: UsersComponent},
   {path:"user/:id",component: UserComponent},
-  {path:"home",component: HomeuserComponent},
   {path:"profile",component: ProfileComponent},
+  {path:"footer",component: FooterComponent},
+  {path:"homeuser", component:HomeuserComponent},
+  {path:"accueil", component:AccueilComponent}
+
 ];
 
 @NgModule({
