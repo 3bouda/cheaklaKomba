@@ -1,4 +1,32 @@
-<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <a class="nav-link" routerLinkActive="actif" routerLink="/accueil">Home</a>
-  <a class="nav-link" routerLinkActive="actif" routerLink="/profile">Profile</a>
-</div>
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav mode="side" class="example-sidenav" [ngStyle]="{ 'width.em': sidenavWidth }" opened="true" (mouseenter)="increase()" (mouseleave)="decrease()">
+    <mat-nav-list>
+      <mat-list-item routerLink="/accueil" routerLinkActive="active">
+        <mat-icon mat-list-icon>home</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5 class="lead">accueil</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/profile" routerLinkActive="active">
+        <mat-icon mat-list-icon>settings</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5 class="lead">Services</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/groups" routerLinkActive="active">
+        <mat-icon mat-list-icon>local_phone</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5 class="lead">Contact</h5>
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

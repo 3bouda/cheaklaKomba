@@ -1,1 +1,87 @@
-<p>accueil works!</p>
+<div class="container">
+  <!-- add post -->
+  <mat-card class="addPost">
+    <form [formGroup]="PosForm" (ngSubmit)="addPost()">
+      <mat-card-title>add a post</mat-card-title>
+      <mat-form-field appearance="standard" class="description">
+        <mat-label>Textarea</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Subject</mat-label>
+        <mat-select formControlName="sujet">
+          <mat-option value="football">Football</mat-option>
+          <mat-option value="physics">Physics</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-card-actions>
+        <input mat-button color="primary" type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"
+          formControlName="date">
+      </mat-card-actions>
+      <mat-card-actions align="end">
+        <button mat-button color="primary" type="submit">submit</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+  <!-- list of posts -->
+  <ng-container *ngFor="let item of posts; let i=index">
+    <mat-card class="post">
+      <mat-card-header>
+        <mat-card-title>{{item.data.user}}</mat-card-title>
+        <mat-card-subtitle>{{item.data.sujet}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        {{item.data.description}}
+        {{item.data.date}}
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>{{item.data.voteup}}</button>
+        <button mat-button>{{item.data.votedown}}</button>
+        <button mat-button (click)="getComments(item.id,i)">Comments</button>
+      </mat-card-actions>
+      <ng-container *ngIf="verifPostIndex(i)==true">
+        <!-- add comments -->
+        <mat-card class="addcomment">
+          <form [formGroup]="comForm" (ngSubmit)="addComment(item.id)">
+            <mat-form-field classe="addCommentField" appearance="standard">
+              <mat-label>add comment</mat-label>
+              <input formControlName="description" matInput placeholder="No one agrees to your opinion">
+            </mat-form-field>
+            <button mat-button color="primary" type="submit">comment</button>
+          </form>
+        </mat-card>
+        <!-- list of comments -->
+        <ng-container *ngFor="let itemm of comment; let j=index">
+          <mat-card class="comment">
+            <mat-card-header>
+              <mat-card-subtitle>{{itemm.data.description}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+              <button mat-button (click)="getReplys(item.id,itemm.id,j)">Replys</button>
+            </mat-card-actions>
+            <ng-container *ngIf="verifCommentIndex(j)==true">
+              <!-- add reply -->
+              <mat-card class="addreply">
+                <form [formGroup]="replyForm" (ngSubmit)="addReply(item.id,itemm.id)">
+                  <mat-form-field classe="addCommentField" appearance="standard">
+                    <mat-label>add reply</mat-label>
+                    <input formControlName="description" matInput placeholder="reply to him">
+                  </mat-form-field>
+                  <button mat-button color="primary" type="submit">reply</button>
+                </form>
+              </mat-card>
+              <!-- list of replys -->
+              <ng-container *ngFor="let itemmm of reply">
+                <mat-card class="reply">
+                  <mat-card-header>
+                    <mat-card-subtitle>{{itemmm.data.description}}</mat-card-subtitle>
+                  </mat-card-header>
+                </mat-card>
+              </ng-container>
+            </ng-container>
+          </mat-card>
+        </ng-container>
+      </ng-container>
+    </mat-card>
+  </ng-container>
+</div>
