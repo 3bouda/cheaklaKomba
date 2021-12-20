@@ -1,1 +1,41 @@
-<p>homeadmin works!</p>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<section class="container py-5">
+    <h2 class="h4 block-title text-center mt-2">Your cheaklakomba users</h2>
+    <div class="row pt-3">
+        <!-- Author-->
+        <ng-container *ngFor="let item of users; let i=index">
+        <div class="col-lg-3 col-sm-6 mb-30 pb-2" style="margin:30px">
+
+
+
+            <div class="team-card-style-3 mx-auto">
+
+                <div class="team-thumb"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Author Picture">
+                </div>
+                <h4 class="team-name">{{item.data.name}} {{item.data.lastname}}</h4><a class="team-contact-link" href="tel:+19871625346"><i class="fe-icon-phone"></i>&nbsp;{{item.data.phone}}</a><a class="team-contact-link" href="mailto:info@example.com"><i class="fe-icon-mail"></i>&nbsp;{{item.data.adr}}</a>
+                <div class="team-social-bar-wrap">
+                    <div class="team-social-bar">
+                        <a class="social-btn sb-style-1 sb-twitter" href="#">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a class="social-btn sb-style-1 sb-github" href="#">
+                            <i class="fa fa-github"></i>
+                        </a>
+                        <a class="social-btn sb-style-1 sb-stackoverflow" href="#">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a class="social-btn sb-style-1 sb-skype" href="#">
+                            <i class="fa fa-skype"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button (click)="delete(item)" style="border:none"><i class="fa fa-trash-o"></i></button>
+        </div>
+      </ng-container>
+        <!-- Author-->
+
+
+    </div>
+</section>
+<app-footer></app-footer>

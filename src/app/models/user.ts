@@ -1,11 +1,14 @@
 export class User{
   constructor(
-    public id:number,
-    public email:string,
-    public phone:string,
-    public name:string,
-    public lastname:string,
-    public adr:string,
-    public sujet:Array<string>
-    ){}
+    public id?:number,
+    public data?:{
+     email?:string,
+     phone?:string,
+     name?:string,
+     lastname?:string,
+     adr?:string,
+     pwd?:string,
+     description?:string;
+    }
+  ){}
 }

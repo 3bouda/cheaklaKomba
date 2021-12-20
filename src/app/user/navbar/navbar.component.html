@@ -1,32 +1,21 @@
-<mat-sidenav-container fullscreen>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <mat-sidenav #sidenav mode="side" class="example-sidenav" [ngStyle]="{ 'width.em': sidenavWidth }" opened="true" (mouseenter)="increase()" (mouseleave)="decrease()">
-    <mat-nav-list>
-      <mat-list-item routerLink="/accueil" routerLinkActive="active">
-        <mat-icon mat-list-icon>home</mat-icon>
-        <div fxFlex="10"></div>
-        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
-          <h5 class="lead">accueil</h5>
-        </div>
-      </mat-list-item>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['accueil']">Home </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['profile']">profile</a>
+      </li>
 
-      <mat-list-item routerLink="/profile" routerLinkActive="active">
-        <mat-icon mat-list-icon>settings</mat-icon>
-        <div fxFlex="10"></div>
-        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
-          <h5 class="lead">Services</h5>
-        </div>
-      </mat-list-item>
 
-      <mat-list-item routerLink="/groups" routerLinkActive="active">
-        <mat-icon mat-list-icon>local_phone</mat-icon>
-        <div fxFlex="10"></div>
-        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
-          <h5 class="lead">Contact</h5>
-        </div>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-sidenav>
-  <router-outlet></router-outlet>
+    </ul>
 
-</mat-sidenav-container>
+  </div>
+</nav>
+

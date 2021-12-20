@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="left">
+    <div class="header">
+      <h2 class="animation a1">Bonjour </h2>
+      <h4 class="animation a2">veuillez saisir votre nom et mot de passe </h4>
+    </div>
+    <div class="form">
+      <input  type="text" class="form-field animation a3" placeholder="nom utilisateur"  #user>
+      <input   type="password" class="form-field animation a4" placeholder="Mot de passe "  #pass>
+
+      <button class="animation a6" (click)="OnSubmit(user.value,pass.value)">connexion</button>
+    </div>
+    <span class="sivous animation a6">Si vous avez pas un compte </span>
+    <a class="nav-item nav-link" routerLink="/signup">Sign Up </a>
+  </div>
+  <div class="right"></div>
+</div>

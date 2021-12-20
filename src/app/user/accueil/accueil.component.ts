@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Comment } from 'src/app/models/comment';
 import { Post } from 'src/app/models/post';
 import { Reply } from 'src/app/models/reply';
+import { User } from 'src/app/models/user';
 import { PostsService } from 'src/app/service/posts.service';
+import { UserService } from 'src/app/service/user.service';
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
@@ -11,8 +13,8 @@ import { PostsService } from 'src/app/service/posts.service';
 })
 export class AccueilComponent implements OnInit {
 
-  constructor( private servicePost:PostsService, private fb:FormBuilder) {
-   }
+  constructor(private userService:UserService, private servicePost:PostsService, private fb:FormBuilder) {}
+  user!:any;
   posts:any;
   PostNumber:number=0;
   PosForm!: FormGroup ;
@@ -30,29 +32,31 @@ export class AccueilComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.user=this.servicePost.getUser();
     this.getPosts();
     this.PosForm = this.fb.group({
       description:"",
       date:"",
       voteup:0,
       votedown:0,
-      user:"",
+      user:this.user.data.name,
       sujet:""
   })
-  this.comForm = this.fb.group({
-    description:"",
-    date:"",
-    voteup:0,
-    votedown:0,
-    user:"",
-})
-this.replyForm = this.fb.group({
-  description:"",
-  date:"",
-  user:"",
-})
+    this.comForm = this.fb.group({
+      description:"",
+      date:"",
+      voteup:0,
+      votedown:0,
+      user:this.user.data.name,
+  })
+    this.replyForm = this.fb.group({
+      description:"",
+      date:"",
+      user:this.user.data.name,
+    })
 
   }
+
   getPosts(){
     this.servicePost.getPost().subscribe(actioanArray=>{
        this.posts= actioanArray.map(item => {

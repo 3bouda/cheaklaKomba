@@ -10,7 +10,10 @@
   background-color: rgba(22, 197, 197, 0.426);
   margin-top: 20px;
 }
-
+.reply{
+  margin-top: 20px;
+  min-width: 700px;
+}
 .addComment{
   min-width: 700px;
 

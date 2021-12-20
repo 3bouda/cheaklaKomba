@@ -1,11 +1,21 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore} from '@angular/fire/compat/firestore';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
+  user!:any;
+
   constructor(public fireservice:AngularFirestore) { }
+  public giveUser(u:any){
+    this.user=u;
+
+  }
+  public getUser(){
+    return this.user;
+  }
 
   //////////////////////////Post//////////////////////////////
   public getPost(){

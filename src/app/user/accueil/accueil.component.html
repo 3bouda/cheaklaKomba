@@ -14,10 +14,7 @@
           <mat-option value="physics">Physics</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-card-actions>
-        <input mat-button color="primary" type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"
-          formControlName="date">
-      </mat-card-actions>
+
       <mat-card-actions align="end">
         <button mat-button color="primary" type="submit">submit</button>
       </mat-card-actions>
@@ -54,6 +51,7 @@
         <ng-container *ngFor="let itemm of comment; let j=index">
           <mat-card class="comment">
             <mat-card-header>
+              <mat-card-title>{{item.data.user}}</mat-card-title>
               <mat-card-subtitle>{{itemm.data.description}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-actions>
@@ -73,7 +71,8 @@
               <!-- list of replys -->
               <ng-container *ngFor="let itemmm of reply">
                 <mat-card class="reply">
-                  <mat-card-header>
+                <mat-card-header>
+                          <mat-card-title>{{itemmm.data.user}}</mat-card-title>
                     <mat-card-subtitle>{{itemmm.data.description}}</mat-card-subtitle>
                   </mat-card-header>
                 </mat-card>

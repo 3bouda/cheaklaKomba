@@ -7,17 +7,24 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { UserComponent } from './admin/user/user.component';
 import { FooterComponent } from './footer/footer.component';
 import { AccueilComponent } from './user/accueil/accueil.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './user/navbar/navbar.component';
 
 
 const routes: Routes = [
+  {path:"homeuser", component:HomeuserComponent,children:[
+    {path:"accueil", component:AccueilComponent},
+    {path:"profile",component: ProfileComponent},
+    {path:"**", component:AccueilComponent}
+  ]},
+  {path:"navbar",component: NavbarComponent},
   {path:"homeadmin",component: HomeadminComponent},
   {path:"users",component: UsersComponent},
   {path:"user/:id",component: UserComponent},
-  {path:"profile",component: ProfileComponent},
   {path:"footer",component: FooterComponent},
-  {path:"homeuser", component:HomeuserComponent},
-  {path:"accueil", component:AccueilComponent}
-
+  {path:"signup", component:SignupComponent},
+  {path:"**", component:LoginComponent}
 ];
 
 @NgModule({

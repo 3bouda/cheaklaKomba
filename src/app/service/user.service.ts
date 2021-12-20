@@ -5,20 +5,24 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   providedIn: 'root'
 })
 export class UserService {
-
+  //userdata!:any;
   constructor(public fireservice:AngularFirestore) { }
-  public getPost(){
+
+  public getUser(){
     return this.fireservice.collection('users').snapshotChanges();
   }
 
-  public addNewPost(v:any) {
+  public addUser(v:any) {
      return this.fireservice.collection('users').add(v);
   }
-  public updateNewPost(v:any,id:string) {
+  public updateUsert(v:any,id:string) {
      return this.fireservice.collection('users').doc(id).set(v);
 
   }
-  public deletePost(item:any) {
+  public deleteUser(item:any) {
     return this.fireservice.collection('users').doc(item.id).delete();
+  }
+  public verifUser(email:string){
+    return this.fireservice.collection('users',ref=>ref.where('email','==',email)).snapshotChanges();
   }
 }
